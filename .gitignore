@@ -1,0 +1,7 @@
+__pycache__/
+
+#virtual environment
+venv
+
+#secret keys
+keys.py
