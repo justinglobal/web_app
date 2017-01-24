@@ -6,3 +6,4 @@ venv
 #secret keys
 keys.py
 .env
+credentials.py
