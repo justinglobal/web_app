@@ -84,3 +84,9 @@ To https://git.heroku.com/shirtfactory.git
 deploy command line: (venv) raccoonjunkbox:shirt_factory admin$ git push heroku heroku-work:master
 
 I will develop locally using my SQLite db with the same command: python manage.py runserver
+
+1/24/17 - destroyed serene-oasis-73032
+
+created new: (venv) raccoonjunkbox:web_app admin$ heroku create --stack cedar
+Creating app... done, ⬢ thawing-refuge-61424, stack is cedar-14
+https://thawing-refuge-61424.herokuapp.com/ | https://git.heroku.com/thawing-refuge-61424.git
