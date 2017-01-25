@@ -23,4 +23,4 @@ twitter = Twython(app_key, app_secret, oauth_token, oauth_token_secret)
 # The above should just be a single line, without the break
 
 # The obligatory first status update to test
-twitter.update_status(status=chr(128123) + 'Maximum Overdrive' + chr(128123))
+twitter.update_status(status=chr(128123) + 'Heroku works' + chr(128123))
