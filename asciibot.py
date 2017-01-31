@@ -22,5 +22,9 @@ oauth_token_secret = os.environ['OAUTH_TOKEN_SECRET']
 twitter = Twython(app_key, app_secret, oauth_token, oauth_token_secret)
 # The above should just be a single line, without the break
 
+# def makemsg(message):
+#     """function to make message?"""
+#     return
+
 # The obligatory first status update to test
-twitter.update_status(status=chr(128123) + 'Heroku works' + chr(128123))
+twitter.update_status(status=chr(128126) + 'Heroku check 2' + chr(128126))
