@@ -5,6 +5,7 @@
 import os
 import urllib.request
 import base64
+from io import BytesIO
 
 from imageserv import image02
 # Importing the module
@@ -33,18 +34,25 @@ oauth_token_secret = os.environ['OAUTH_TOKEN_SECRET']
 with urllib.request.urlopen('https://shirtfactory.herokuapp.com/design/image/37') as img_raw:
     img_bytes = img_raw.read()
 
-img_d64 = base64.b64decode(img_bytes)
+print('__trying b64 encoding on raw bytes_')
+img_str_b64_encoded = base64.b64encode(img_bytes)
+print(img_str_b64_encoded)
 
-print(type(img_d64))
-img_d64_str = str(img_d64)
-print(img_d64_str[0:30])
-print('___________________')
 
-## convert img_code from bytes to string
-img_str = str(img_bytes)
-
-print(type(img_str))
-print(img_str[0:30])
+# print(img_bytes[0:30])
+#
+# img_d64 = base64.b64decode(img_bytes)
+#
+# print(type(img_d64))
+# img_d64_str = str(img_d64)
+# print(img_d64_str[0:30])
+# print('___________________')
+#
+# ## convert img_code from bytes to string
+# img_str = str(img_bytes)
+#
+# print(type(img_str))
+# print(img_str[0:30])
 
 print('______________________________')
 
