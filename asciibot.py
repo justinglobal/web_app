@@ -50,6 +50,11 @@ print('______________________________')
 
 print(type(image02))
 print(image02[0:30])
+
+print('__trying b64 encoding on raw bytes_')
+img_str_b64_encoded = base64.b64encode(img_bytes)
+print(img_str_b64_encoded)
+
 # check if img_code needs to be a list
 
 # def makemsg(message):
