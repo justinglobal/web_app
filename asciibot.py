@@ -2,12 +2,13 @@
 
 # import secret keys
 # from keys import my_secret
-import os
-import urllib.request
 import base64
-from io import BytesIO
+import os
+import random
+import urllib.request
 
-from imageserv import image02
+# from io import BytesIO
+# from imageserv import image02
 # Importing the module
 from twython import Twython
 
@@ -23,42 +24,39 @@ oauth_token = os.environ['OAUTH_TOKEN']
 oauth_token_secret = os.environ['OAUTH_TOKEN_SECRET']
 
 # Prepare your twitter, you will need it for everything
-# twitter = Twython(app_key, app_secret, oauth_token, oauth_token_secret)
+twitter = Twython(app_key, app_secret, oauth_token, oauth_token_secret)
 # The above should just be a single line, without the break
 
 # with urllib.request.urlopen('https://shirtfactory.herokuapp.com/design/image/37') as img_raw:
     # print(type(img_raw))
 
+design_nums = [1, 2, 3, 4, 5, 7, 22, 27, 34, 35, 36, 37, 39, 41, 42, 43, 45, 46, 47, 48, 49]
+
+link_num = random.choice(design_nums)
+
+link = 'https://shirtfactory.herokuapp.com/design/image/' + str(link_num)
 
 ## get bytecode from shirtfactory.heroku
-with urllib.request.urlopen('https://shirtfactory.herokuapp.com/design/image/37') as img_raw:
+# with urllib.request.urlopen('https://shirtfactory.herokuapp.com/design/image/2') as img_raw:
+#     img_bytes = img_raw.read()
+with urllib.request.urlopen(link) as img_raw:
     img_bytes = img_raw.read()
 
-print('__trying b64 encoding on raw bytes_')
-img_str_b64_encoded = base64.b64encode(img_bytes)
-print(img_str_b64_encoded)
-
-
+# print('______raw read results below_______')
+# print(type(img_bytes))
 # print(img_bytes[0:30])
-#
-# img_d64 = base64.b64decode(img_bytes)
-#
-# print(type(img_d64))
-# img_d64_str = str(img_d64)
-# print(img_d64_str[0:30])
-# print('___________________')
-#
-# ## convert img_code from bytes to string
-# img_str = str(img_bytes)
-#
-# print(type(img_str))
-# print(img_str[0:30])
 
-print('______________________________')
+# print('__trying b64 encoding on raw bytes_')
+img_str_b64_encoded = base64.b64encode(img_bytes)
+img_str_b64_decoded = img_str_b64_encoded.decode()
+# print(type(img_str_b64_encoded))
+# print(img_str_b64_decoded[0:30])
 
-print(type(image02))
-print(image02[0:30])
-# check if img_code needs to be a list
+# print('___________output below_______')
+img_str_b64_decoded_str = str(img_str_b64_decoded)
+# print(type(img_str_b64_decoded_str))
+# print(img_str_b64_decoded_str[0:30])
+
 
 # def makemsg(message):
 #     """function to make message?"""
@@ -74,8 +72,8 @@ print(image02[0:30])
 # response = twitter.upload_media(media_data=img)
 
 # this is current code below:
-# response = twitter.upload_media(media=img_str)
-# #
-# twitter.update_status(status='image check 04', media_ids=[response['media_id']])
+response = twitter.upload_media(media=img_str_b64_decoded_str)
+#
+twitter.update_status(status='ASCII design number ' + str(link_num), media_ids=[response['media_id']])
 
 # response = twitter.upload_media(media_data='https://shirtfactory.herokuapp.com/design/image/46')
