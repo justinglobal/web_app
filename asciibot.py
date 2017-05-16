@@ -30,7 +30,7 @@ twitter = Twython(app_key, app_secret, oauth_token, oauth_token_secret)
 # with urllib.request.urlopen('https://shirtfactory.herokuapp.com/design/image/37') as img_raw:
     # print(type(img_raw))
 
-design_nums = [1, 2, 3, 4, 5, 7, 22, 27, 34, 35, 36, 37, 39, 41, 42, 43, 45, 46, 47, 48, 49]
+design_nums = [1, 2, 3, 4, 5, 7, 22, 27, 34, 35, 36, 37, 39, 41, 42, 43, 45, 46, 47, 48, 49,65]
 
 link_num = random.choice(design_nums)
 
